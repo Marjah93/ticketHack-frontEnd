@@ -1,0 +1,347 @@
+/* ============================
+   TICKETHACK – style.css
+   Variables & reset
+   ============================ */
+:root {
+  --green: #2ec4b6;
+  --green-dark: #21a99e;
+  --bg: #f7f8fa;
+  --text: #1a1a2e;
+  --text-light: #555;
+  --card-bg: #ffffff;
+  --border: #e0e4ea;
+  --error: #e63946;
+  --font-display: "Segoe UI", Tahoma, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-display);
+  background: var(--bg);
+  color: var(--text);
+}
+
+body.home-page {
+  background: url("../asset/background.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ============================
+   NAVBAR
+   ============================ */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.brand {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--green);
+  letter-spacing: 0.5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ============================
+   HERO (index only)
+   ============================ */
+.hero {
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.hero-overlay h1 {
+  font-size: 2.3rem;
+  margin-bottom: 0.75rem;
+}
+
+.hero-overlay p {
+  color: #adc8e0;
+  font-size: 1rem;
+}
+
+/* ============================
+   HOME LAYOUT (search + results)
+   ============================ */
+.home-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+@media (max-width: 700px) {
+  .home-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================
+   SEARCH PANEL
+   ============================ */
+.search-panel {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+
+.search-panel h2 {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  font-size: 0.82rem;
+  color: var(--text-light);
+  margin-bottom: 4px;
+}
+
+.form-group input {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+  border-color: var(--green);
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 0.65rem;
+  background: var(--green);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover {
+  background: var(--green-dark);
+}
+
+/* ============================
+   RESULTS PANEL
+   ============================ */
+.results-panel {
+  min-height: 200px;
+}
+
+.placeholder-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 200px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text-light);
+  gap: 0.75rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.train-icon {
+  width: 5rem;
+  height: 5rem;
+  object-fit: contain;
+}
+
+/* ============================
+   TRIP CARD (search results + cart + bookings)
+   ============================ */
+.trip-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.trip-info {
+  flex: 1;
+}
+
+.trip-route {
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.trip-detail {
+  font-size: 0.82rem;
+  color: var(--text-light);
+}
+
+.trip-price {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--green-dark);
+  white-space: nowrap;
+}
+
+.trip-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-secondary {
+  padding: 0.4rem 0.9rem;
+  background: transparent;
+  border: 1.5px solid var(--green);
+  color: var(--green);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  background: var(--green);
+  color: #fff;
+}
+
+.btn-danger {
+  padding: 0.4rem 0.9rem;
+  background: transparent;
+  border: 1.5px solid var(--error);
+  color: var(--error);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-danger:hover {
+  background: var(--error);
+  color: #fff;
+}
+
+/* ============================
+   PAGES (cart / booking)
+   ============================ */
+.page-layout {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem 1.5rem;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+}
+
+.page-title {
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.empty-msg {
+  color: var(--text-light);
+  font-style: italic;
+}
+
+/* ============================
+   CART FOOTER
+   ============================ */
+#cart-footer {
+  border-top: 1px solid var(--border);
+  padding-top: 1.25rem;
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.total-label {
+  font-size: 1.1rem;
+}
+
+#cart-footer .btn-primary {
+  width: auto;
+  padding: 0.65rem 2rem;
+}
+
+/* ============================
+   COUNTDOWN (bookings)
+   ============================ */
+.countdown {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-top: 4px;
+}
+
+/* ============================
+   UTILS
+   ============================ */
+.hidden {
+  display: none !important;
+}
+
+.error-msg {
+  color: var(--error);
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
